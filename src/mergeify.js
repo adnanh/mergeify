@@ -1,4 +1,5 @@
 var tools = require('browserify-transform-tools');
+var _ = require('lodash-node');
 
 // Transform function
 function transform(content, transformOptions, done) {
@@ -23,15 +24,11 @@ function transform(content, transformOptions, done) {
         var configObject = {};
 
         if (rawConfigObject.hasOwnProperty('options')) {
-            for (var key in rawConfigObject.options) {
-                configObject[key] = rawConfigObject.options[key];
-            }
+            _.merge(configObject, rawConfigObject.options);
         }
 
         if (rawConfigObject.hasOwnProperty(transformOptions.config.environment)) {
-            for (var key in rawConfigObject[transformOptions.config.environment]) {
-                configObject[key] = rawConfigObject[transformOptions.config.environment][key];
-            }
+            _.merge(configObject, rawConfigObject[transformOptions.config.environment]);
         }
 
         var newContent = JSON.stringify(configObject);

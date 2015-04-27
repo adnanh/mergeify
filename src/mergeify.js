@@ -24,11 +24,11 @@ function transform(content, transformOptions, done) {
         var configObject = {};
 
         if (rawConfigObject.hasOwnProperty('options')) {
-            _.merge(configObject, rawConfigObject.options);
+            configObject = _.merge(configObject, rawConfigObject.options);
         }
 
         if (rawConfigObject.hasOwnProperty(transformOptions.config.environment)) {
-            _.merge(configObject, rawConfigObject[transformOptions.config.environment]);
+            configObject = _.merge(configObject, rawConfigObject[transformOptions.config.environment]);
         }
 
         var newContent = JSON.stringify(configObject);

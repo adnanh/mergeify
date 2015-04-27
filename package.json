@@ -1,6 +1,6 @@
 {
   "name": "mergeify",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "config object with environment overloads",
   "main": "src/mergeify.js",
   "scripts": {

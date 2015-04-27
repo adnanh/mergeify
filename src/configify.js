@@ -34,7 +34,7 @@ function transform(content, transformOptions, done) {
             }
         }
 
-        var newContent = "var config = " + JSON.stringify(configObject) + ";\nmodule.exports = config;";
+        var newContent = JSON.stringify(configObject);
 
         return done(null, newContent);
     } else {

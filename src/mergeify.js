@@ -43,4 +43,4 @@ function transform(content, transformOptions, done) {
 }
 
 // Export transform
-module.exports = tools.makeStringTransform('configify', { includeExtensions: [".json"] }, transform);
+module.exports = tools.makeStringTransform('mergeify', { includeExtensions: [".json"] }, transform);

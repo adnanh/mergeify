@@ -5,6 +5,9 @@ var _ = require('lodash-node');
 function transform(content, transformOptions, done) {
     var file = transformOptions.file;
 
+    // convert windows style path separator to unix style
+    file = file.replace(/\\/g, '/');
+
     transformOptions.config.files = transformOptions.config.files || ['config.json'];
     transformOptions.config.environment = transformOptions.config.environment || 'development';
 
